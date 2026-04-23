@@ -114,8 +114,7 @@ fun Application.expenseRoutes() {
                             date = body.date,
                         )
                     }
-                    // BUG: should be HttpStatusCode.Created (201) not OK (200)
-                    call.respond(HttpStatusCode.OK, created)
+                    call.respond(HttpStatusCode.Created, created)
                 } catch (e: Exception) {
                     call.respond(HttpStatusCode.InternalServerError, ErrorResponse(e.message ?: "Unexpected error"))
                 }
